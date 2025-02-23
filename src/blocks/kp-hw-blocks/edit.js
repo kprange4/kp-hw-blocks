@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import {__} from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {useBlockProps} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,10 +29,25 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+
+import {RichText, PlainText, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
+import {SelectControl} from '@wordpress/components';
+import StarRating from "../../components/StarRating";
+
+export default function Edit({attributes, setAttributes}) {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'KP HW Blocks – hello from the editor!', 'kp-hw-blocks' ) }
-		</p>
+		<div {...useBlockProps()}>
+			<div className="wp-block-kp-skill-block">
+				<div className="skill-icon">
+					<div className="photo">
+						<img src="https://place-hold.it/75" alt="Skill Icon"/>
+					</div>
+				</div>
+				<div className="text">
+					<p className="skill-name">Skill Name</p>
+					<p className="skill-category">Skill Category</p>
+				</div>
+			</div>
+		</div>
 	);
 }

@@ -16,6 +16,8 @@
 		"env": "wp-env"
 	},
 	"devDependencies": {
+		"@wordpress/block-editor": "^14.13.0",
+		"@wordpress/components": "^29.4.0",
 		"@wordpress/env": "^10.18.0",
 		"@wordpress/scripts": "^30.11.0"
 	}
