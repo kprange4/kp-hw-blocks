@@ -25,6 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function kp_kp_hw_blocks_block_init() {
-	register_block_type( __DIR__ . '/build/kp-hw-blocks' );
+	register_block_type( __DIR__ . '/build/blocks/kp-hw-blocks' );
 }
 add_action( 'init', 'kp_kp_hw_blocks_block_init' );

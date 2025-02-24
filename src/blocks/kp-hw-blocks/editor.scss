@@ -4,6 +4,15 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-kp-kp-hw-blocks {
+@import "/src/scss/variables";
+.wp-block-kp-plugin-skill{
 	border: 1px dotted #f00;
+	textarea, input[type=text] {
+		background-color: $bg-light;
+	}
+
+	.photo img {
+		pointer-events: all;
+		cursor: pointer;
+	}
 }

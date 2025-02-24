@@ -18,7 +18,7 @@
 	"viewScript": "file:./view.js",
 	"keywords": ["skills", "program"],
 	"attributes": {
-		"icon": {
+		"iconURL": {
 			"type": "string",
 			"default": "https://place-hold.it/75"
 		},

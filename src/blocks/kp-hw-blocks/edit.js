@@ -31,21 +31,36 @@ import './editor.scss';
  */
 
 import {RichText, PlainText, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
-import {SelectControl} from '@wordpress/components';
-import StarRating from "../../components/StarRating";
 
 export default function Edit({attributes, setAttributes}) {
 	return (
 		<div {...useBlockProps()}>
-			<div className="wp-block-kp-skill-block">
+			<div className="wp-block-kp-plugin-skill">
 				<div className="skill-icon">
-					<div className="photo">
-						<img src="https://place-hold.it/75" alt="Skill Icon"/>
-					</div>
+					<MediaUploadCheck>
+						<MediaUpload
+							onSelect={ ( media ) => setAttributes({'iconURL': media.sizes.thumbnail.url})}
+							allowedTypes={ ['image'] }
+							render={ ( { open } ) => (
+								<img onClick={open} src={attributes.iconURL} alt="Choose image"/>
+							)}
+						/>
+					</MediaUploadCheck>
 				</div>
 				<div className="text">
-					<p className="skill-name">Skill Name</p>
+					<RichText className="skill-name"
+							  tagName="p"
+							  placeholder="Write skill name here."
+							  value={attributes.name}
+							  onChange={value => setAttributes({name: value})}
+					/>
 					<p className="skill-category">Skill Category</p>
+					<RichText className="skill-name"
+							  tagName="p"
+							  placeholder="Write skill category here."
+							  value={attributes.category}
+							  onChange={value => setAttributes({category: value})}
+					/>
 				</div>
 			</div>
 		</div>
