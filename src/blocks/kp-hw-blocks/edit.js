@@ -33,12 +33,33 @@ import './editor.scss';
 import {RichText, PlainText, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
 import {SelectControl} from "@wordpress/components";
 import Card from "../../components/Card";
+import BlockSettings from "./BlockSettings";
 
 export default function Edit({attributes, setAttributes}) {
+	/**
+	 * Style overrides for the block
+	 * @type CSSProperties
+	 */
+	const divStyles = {
+		backgroundColor: attributes.backgroundColor,
+		color: attributes.textColor,
+	}
+	const options = [
+		{ value: 'Graphic Design', label: 'Graphic Design' },
+		{ value: 'UI/UX Design', label: 'UI/UX Design' },
+		{ value: 'Web Development', label: 'Web Development' },
+		{ value: 'Illustration', label: 'Illustration' },
+		{ value: 'Motion Graphics', label: 'Motion Graphics' },
+	];
 	return (
 		<div {...useBlockProps()}>
 			<div className="wp-block-kp-plugin-skill">
+				<BlockSettings
+					attributes={attributes}
+					setAttributes={setAttributes}
+				/>
 				<Card
+					styles={divStyles}
 					img={
 						<div className="skill-icon">
 							<MediaUploadCheck>
@@ -69,13 +90,7 @@ export default function Edit({attributes, setAttributes}) {
 								label="Select a Category"
 								value={attributes.category}
 								onChange={category => setAttributes({category})}
-								options={[
-									{value: 'graphic-design', label: "Graphic Design"},
-									{value: 'ui-ux-design', label: "UI/UX Design"},
-									{value: 'web-development', label: "Web Development"},
-									{value: 'illustration', label: "Illustration"},
-									{value: 'motion-graphics', label: "Motion Graphics"},
-								]}
+								options={options}
 							/>
 						</div>
 					}

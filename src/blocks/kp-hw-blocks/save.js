@@ -18,10 +18,19 @@ import './style.scss';
 import {RichText, useBlockProps} from '@wordpress/block-editor';
 import Card from "../../components/Card";
 export default function save({attributes}) {
+	/**
+	 * Style overrides for the block
+	 * @type CSSProperties
+	 */
+	const divStyles = {
+		backgroundColor: attributes.backgroundColor,
+		color: attributes.textColor,
+	}
 	return (
 		<div {...useBlockProps.save()}>
 			<div className="wp-block-kp-plugin-skill">
 				<Card
+					styles={divStyles}
 					img={
 						<div className="skill-icon">
 							<img src={attributes.iconURL} alt={"Icon of " + attributes.name}/>

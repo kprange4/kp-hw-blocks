@@ -1,7 +1,7 @@
 import './Card.scss'
-export default function Card({img, title, content}) {
+export default function Card({img, title, content, styles}) {
 	return (
-		<div className="card">
+		<div className="card" style={styles}>
 			<div className="card-img">{img}</div>
 			<div className="card-body">
 				<div className="card-title">{title}</div>
