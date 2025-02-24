@@ -20,7 +20,7 @@ export default function save({attributes}) {
 		<div {...useBlockProps.save()}>
 			<div className="wp-block-kp-plugin-skill">
 				<div className="skill-icon">
-					<img src={attributes.icon} alt={"Icon of " + attributes.name}/>
+					<img src={attributes.iconURL} alt={"Icon of " + attributes.name}/>
 				</div>
 				<div className="text">
 					<p className="skill-name">{attributes.name}</p>

@@ -31,6 +31,9 @@ import './editor.scss';
  */
 
 import {RichText, PlainText, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
+import SkillCategory from "../../components/SkillCategory";
+import {SelectControl} from "@wordpress/components";
+import React from "react";
 
 export default function Edit({attributes, setAttributes}) {
 	return (
@@ -47,19 +50,31 @@ export default function Edit({attributes, setAttributes}) {
 						/>
 					</MediaUploadCheck>
 				</div>
-				<div className="text">
+				<div className="skill-info">
 					<RichText className="skill-name"
 							  tagName="p"
 							  placeholder="Write skill name here."
 							  value={attributes.name}
 							  onChange={value => setAttributes({name: value})}
 					/>
-					<p className="skill-category">Skill Category</p>
 					<RichText className="skill-name"
 							  tagName="p"
 							  placeholder="Write skill category here."
 							  value={attributes.category}
 							  onChange={value => setAttributes({category: value})}
+					/>
+					<SelectControl
+						className="skill-category"
+						label="Select a Category"
+						value={attributes.category}
+						onChange={category => setAttributes({category})}
+						options={[
+							{value: 'graphic-design', label: "Graphic Design"},
+							{value: 'ui-ux-design', label: "UI/UX Design"},
+							{value: 'web-development', label: "Web Development"},
+							{value: 'illustration', label: "Illustration"},
+							{value: 'motion-graphics', label: "Motion Graphics"},
+						]}
 					/>
 				</div>
 			</div>
