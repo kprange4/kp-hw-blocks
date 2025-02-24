@@ -6,11 +6,6 @@
 
 @import "/src/scss/variables";
 .wp-block-kp-plugin-skill{
-	display: flex;
-	border: 1px dotted #f00;
-	background-color: $bg-light;
-	color: black;
-
 	.skill-icon img {
 		pointer-events: all;
 		cursor: pointer;
