@@ -31,52 +31,55 @@ import './editor.scss';
  */
 
 import {RichText, PlainText, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
-import SkillCategory from "../../components/SkillCategory";
 import {SelectControl} from "@wordpress/components";
-import React from "react";
+import Card from "../../components/Card";
 
 export default function Edit({attributes, setAttributes}) {
 	return (
 		<div {...useBlockProps()}>
 			<div className="wp-block-kp-plugin-skill">
-				<div className="skill-icon">
-					<MediaUploadCheck>
-						<MediaUpload
-							onSelect={ ( media ) => setAttributes({'iconURL': media.sizes.thumbnail.url})}
-							allowedTypes={ ['image'] }
-							render={ ( { open } ) => (
-								<img onClick={open} src={attributes.iconURL} alt="Choose image"/>
-							)}
-						/>
-					</MediaUploadCheck>
-				</div>
-				<div className="skill-info">
-					<RichText className="skill-name"
-							  tagName="p"
-							  placeholder="Write skill name here."
-							  value={attributes.name}
-							  onChange={value => setAttributes({name: value})}
-					/>
-					<RichText className="skill-name"
-							  tagName="p"
-							  placeholder="Write skill category here."
-							  value={attributes.category}
-							  onChange={value => setAttributes({category: value})}
-					/>
-					<SelectControl
-						className="skill-category"
-						label="Select a Category"
-						value={attributes.category}
-						onChange={category => setAttributes({category})}
-						options={[
-							{value: 'graphic-design', label: "Graphic Design"},
-							{value: 'ui-ux-design', label: "UI/UX Design"},
-							{value: 'web-development', label: "Web Development"},
-							{value: 'illustration', label: "Illustration"},
-							{value: 'motion-graphics', label: "Motion Graphics"},
-						]}
-					/>
-				</div>
+				<Card
+					img={
+						<div className="skill-icon">
+							<MediaUploadCheck>
+								<MediaUpload
+									onSelect={(media) => setAttributes({'iconURL': media.sizes.thumbnail.url})}
+									allowedTypes={['image']}
+									render={({open}) => (
+										<img onClick={open} src={attributes.iconURL} alt="Choose image"/>
+									)}
+								/>
+							</MediaUploadCheck>
+						</div>
+					}
+					title={
+						<div className="skill-info">
+							<RichText className="skill-name"
+									  tagName="p"
+									  placeholder="Write skill name here."
+									  value={attributes.name}
+									  onChange={value => setAttributes({name: value})}
+							/>
+						</div>
+					}
+					content={
+						<div className="skill-info">
+							<SelectControl
+								className="skill-category"
+								label="Select a Category"
+								value={attributes.category}
+								onChange={category => setAttributes({category})}
+								options={[
+									{value: 'graphic-design', label: "Graphic Design"},
+									{value: 'ui-ux-design', label: "UI/UX Design"},
+									{value: 'web-development', label: "Web Development"},
+									{value: 'illustration', label: "Illustration"},
+									{value: 'motion-graphics', label: "Motion Graphics"},
+								]}
+							/>
+						</div>
+					}
+				/>
 			</div>
 		</div>
 	);

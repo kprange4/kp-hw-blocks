@@ -1,0 +1,10 @@
+@import "/src/scss/variables";
+.card {
+	display: flex;
+	background-color: $bg-light;
+	color: black;
+	box-shadow: (4px 4px 10px rgba(0,0,0,0.2));
+	border-radius: 20px;
+	padding: 10px;
+	align-items: center;
+}
