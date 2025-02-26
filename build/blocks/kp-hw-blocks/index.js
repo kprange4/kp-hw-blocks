@@ -30,9 +30,9 @@ function BlockSettings({
   attributes,
   setAttributes
 }) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-      title: "Basic",
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+      title: "Color",
       initialOpen: true,
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
@@ -59,7 +59,20 @@ function BlockSettings({
           enableAlpha: true
         })
       })]
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+      title: "Orientation",
+      initialOpen: true,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+          __nextHasNoMarginBottom: true,
+          label: "Vertical Orientation",
+          checked: attributes.orientation,
+          onChange: orientation => setAttributes({
+            orientation
+          })
+        })
+      })
+    })]
   });
 }
 
@@ -71,7 +84,7 @@ function BlockSettings({
   \********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kp/kp-hw-blocks","version":"0.1.0","title":"KP HW Blocks","category":"design","icon":"lightbulb","description":"This is my practice making blocks.","example":{},"supports":{"html":false},"textdomain":"kp-hw-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["skills","program"],"attributes":{"iconURL":{"type":"string","default":"https://place-hold.it/75"},"name":{"type":"string","source":"html","selector":".skill-name"},"category":{"type":"string","source":"html","selector":".skill-category"},"projectLink":{"type":"string"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kp/kp-hw-blocks","version":"0.1.0","title":"KP HW Blocks","category":"design","icon":"lightbulb","description":"This is my practice making blocks.","example":{},"supports":{"html":false},"textdomain":"kp-hw-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["skills","program"],"attributes":{"iconURL":{"type":"string","default":"https://place-hold.it/75"},"name":{"type":"string","source":"html","selector":".skill-name"},"category":{"type":"string","source":"html","selector":".skill-category"},"backgroundColor":{"type":"string"},"textColor":{"type":"string"},"orientation":{"type":"boolean","default":false}}}');
 
 /***/ }),
 
@@ -141,9 +154,26 @@ function Edit({
    * Style overrides for the block
    * @type CSSProperties
    */
-  const divStyles = {
+  const verticalStyles = {
     backgroundColor: attributes.backgroundColor,
-    color: attributes.textColor
+    color: attributes.textColor,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyItems: 'center',
+    textAlign: 'center'
+  };
+  /**
+   * Style overrides for the block
+   * @type CSSProperties
+   */
+  const horizontalStyles = {
+    backgroundColor: attributes.backgroundColor,
+    color: attributes.textColor,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    textAlign: 'left'
   };
   const options = [{
     value: 'Graphic Design',
@@ -169,7 +199,7 @@ function Edit({
         attributes: attributes,
         setAttributes: setAttributes
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        styles: divStyles,
+        styles: attributes.orientation ? verticalStyles : horizontalStyles,
         img: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "skill-icon",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
@@ -328,16 +358,33 @@ function save({
    * Style overrides for the block
    * @type CSSProperties
    */
-  const divStyles = {
+  const verticalStyles = {
     backgroundColor: attributes.backgroundColor,
-    color: attributes.textColor
+    color: attributes.textColor,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyItems: 'center',
+    textAlign: 'center'
+  };
+  /**
+   * Style overrides for the block
+   * @type CSSProperties
+   */
+  const horizontalStyles = {
+    backgroundColor: attributes.backgroundColor,
+    color: attributes.textColor,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    textAlign: 'left'
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(),
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "wp-block-kp-plugin-skill",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        styles: divStyles,
+        styles: attributes.orientation ? verticalStyles : horizontalStyles,
         img: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "skill-icon",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
@@ -427,7 +474,8 @@ function Card({
   img,
   title,
   content,
-  styles
+  styles,
+  attributes
 }) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "card",

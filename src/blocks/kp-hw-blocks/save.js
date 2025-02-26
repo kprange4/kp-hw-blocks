@@ -22,15 +22,32 @@ export default function save({attributes}) {
 	 * Style overrides for the block
 	 * @type CSSProperties
 	 */
-	const divStyles = {
+	const verticalStyles = {
 		backgroundColor: attributes.backgroundColor,
 		color: attributes.textColor,
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyItems: 'center',
+		textAlign: 'center',
+	}
+	/**
+	 * Style overrides for the block
+	 * @type CSSProperties
+	 */
+	const horizontalStyles = {
+		backgroundColor: attributes.backgroundColor,
+		color: attributes.textColor,
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		textAlign: 'left',
 	}
 	return (
 		<div {...useBlockProps.save()}>
 			<div className="wp-block-kp-plugin-skill">
 				<Card
-					styles={divStyles}
+					styles={attributes.orientation ? verticalStyles : horizontalStyles}
 					img={
 						<div className="skill-icon">
 							<img src={attributes.iconURL} alt={"Icon of " + attributes.name}/>

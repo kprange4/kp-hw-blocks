@@ -25,9 +25,6 @@
 .wp-block-kp-plugin-skill .skill-icon {
   display: flex;
 }
-.wp-block-kp-plugin-skill .skill-info {
-  margin-left: 20px;
-}
 .wp-block-kp-plugin-skill .skill-name {
   font-size: 20px;
   font-weight: bold;

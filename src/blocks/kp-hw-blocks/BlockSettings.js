@@ -1,13 +1,13 @@
 import React from "react";
 import {InspectorControls} from "@wordpress/block-editor";
-import {ColorPalette, ColorPicker, PanelBody, PanelRow} from "@wordpress/components";
+import {ColorPalette, ColorPicker, PanelBody, PanelRow, ToggleControl} from "@wordpress/components";
 import colors from "../../common/colors"
 
 export default function BlockSettings({attributes, setAttributes}) {
 
 	return (
 		<InspectorControls>
-			<PanelBody title="Basic" initialOpen={true}>
+			<PanelBody title="Color" initialOpen={true}>
 				<PanelRow>
 					<h4>Skill Background Color</h4>
 				</PanelRow>
@@ -26,6 +26,16 @@ export default function BlockSettings({attributes, setAttributes}) {
 						color={attributes.textColor}
 						onChange={textColor => setAttributes({textColor})}
 						enableAlpha
+					/>
+				</PanelRow>
+			</PanelBody>
+			<PanelBody title="Orientation" initialOpen={true}>
+				<PanelRow>
+					<ToggleControl
+						__nextHasNoMarginBottom
+						label="Vertical Orientation"
+						checked={attributes.orientation}
+						onChange={ orientation => setAttributes({orientation})}
 					/>
 				</PanelRow>
 			</PanelBody>

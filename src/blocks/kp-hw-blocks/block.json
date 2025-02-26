@@ -32,8 +32,15 @@
 			"source": "html",
 			"selector": ".skill-category"
 		},
-		"projectLink": {
+		"backgroundColor": {
 			"type": "string"
+		},
+		"textColor": {
+			"type": "string"
+		},
+		"orientation": {
+			"type": "boolean",
+			"default": false
 		}
 	}
 }
