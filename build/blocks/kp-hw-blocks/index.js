@@ -71,7 +71,7 @@ function BlockSettings({
   \********************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kp/kp-hw-blocks","version":"0.1.0","title":"KP HW Blocks","category":"design","icon":"lightbulb","description":"This is my practice making blocks.","example":{},"supports":{"html":false},"textdomain":"kp-hw-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["skills","program"],"attributes":{"iconURL":{"type":"string","default":"https://place-hold.it/75"},"name":{"type":"string","source":"html","selector":".skill-name"},"category":{"type":"string","source":"html","selector":".skill-category"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"kp/kp-hw-blocks","version":"0.1.0","title":"KP HW Blocks","category":"design","icon":"lightbulb","description":"This is my practice making blocks.","example":{},"supports":{"html":false},"textdomain":"kp-hw-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["skills","program"],"attributes":{"iconURL":{"type":"string","default":"https://place-hold.it/75"},"name":{"type":"string","source":"html","selector":".skill-name"},"category":{"type":"string","source":"html","selector":".skill-category"},"projectLink":{"type":"string"}}}');
 
 /***/ }),
 

@@ -34,6 +34,9 @@
       "type": "string",
       "source": "html",
       "selector": ".skill-category"
+    },
+    "projectLink": {
+      "type": "string"
     }
   }
 }

@@ -31,7 +31,7 @@ import './editor.scss';
  */
 
 import {RichText, PlainText, MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
-import {SelectControl} from "@wordpress/components";
+import {ExternalLink, SelectControl} from "@wordpress/components";
 import Card from "../../components/Card";
 import BlockSettings from "./BlockSettings";
 
